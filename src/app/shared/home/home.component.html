@@ -1,0 +1,40 @@
+<mat-card class="auth__card" fxLayout="column" fxFill>
+    <form [formGroup]="barcodesForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-evenly" fxFill>
+
+    <mat-card-header class="auth__title" fxLayout="row" fxLayoutAlign="center center" fxFlex="25">
+        <mat-card-title>
+            <mat-icon class="auth__title__icon" aria-hidden="true" color="primary">whatshot</mat-icon>
+            Barcodes
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="auth__content" fxLayout="column" fxLayoutAlign="space-around" fxFlex="grow">
+
+            <div fxLayout="row" fxLayoutAlign="center">
+                <mat-form-field fxFlex="70">
+                    <textarea style="height:200px;" matInput placeholder="Barcodes" type="text" formControlName="barcodes">
+                    </textarea>
+                </mat-form-field>
+            </div>
+
+    </mat-card-content>
+
+    <mat-spinner class="auth__spinner" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+
+    <mat-card-actions  class="auth__actions" fxLayout="column" fxLayoutAlign="center center" fxFlex="25">
+        <div fxFlex="66">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!barcodesForm.valid">
+                Generate barcodes
+            </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div fxFlex="33">
+        </div>
+
+    </mat-card-actions>
+
+    </form>
+</mat-card>
+
+
+<img id="result" />
